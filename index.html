@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="/style.css">
+ <!-- <link rel="script" href="script.js"> -->
+   <title>Document</title>
+</head>
+
+
+<body>
+
+
+
+    <button id="applyButton" onclick="showModel()"  class="btn">Apply</button>
+
+    <div id="popupForm" class="overlay"></div>
+
+
+
+    <div class="loginform">
+        
+      <span onclick="closeModel()">&times;</span>
+    
+      <form id="form">
+        <div>
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" required>
+      </div>
+
+     <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+      </div>
+
+
+     <div>
+        <label for="mobileNo">Mobile No:</label>
+        <input type="tel" id="mobileNo" required>
+      </div>
+
+
+     <div>
+        <label for="collegeName">College Name:</label>
+        <input type="text" id="collegeName" required>
+      </div>
+
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+      </div>
+
+        <button type="submit" onclick="closeModel()">Submit</button>
+      </form>
+
+     
+    </div>
+
+    
+<script>
+  function showModel(){
+    document.querySelector('.overlay').classList.add('showoverlay')
+    document.querySelector('.loginform').classList.add('showloginform')
+}
+
+function closeModel(){
+    document.querySelector('.overlay').classList.remove('showoverlay')
+    document.querySelector('.loginform').classList.remove('showloginform')
+}
+
+
+document.getElementById("form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    
+    // Show the popup message
+    var popup = document.createElement("div");
+    popup.id = "#popupMessage";
+    popup.innerText = "Your appointment is registered";
+    document.body.appendChild(popup);
+    
+    // Automatically remove the popup after a few seconds (optional)
+    setTimeout(function() {
+      popup.remove();
+    }, 3000);
+  });
+
+
+
+</script>
+
+</body>
+</html>
